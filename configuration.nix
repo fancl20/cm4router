@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 {
-  require = [
+  imports = [
     ./system/hardware.nix
     ./system/users.nix
+
+    ./services/dae.nix
   ];
 
   networking = {
