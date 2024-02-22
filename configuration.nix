@@ -7,6 +7,7 @@
 
     ./services/avahi.nix
     ./services/dae.nix
+    ./services/dhcpd4.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
