@@ -5,6 +5,7 @@
     ./system/users.nix
     ./system/network.nix
 
+    ./services/avahi.nix
     ./services/dae.nix
   ];
 
