@@ -8,10 +8,9 @@
     ./services/dae.nix
   ];
 
-  networking = {
-    hostName = "cm4router";
-  };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  networking.hostName = "cm4router";
   services.openssh.enable = true;
 
   environment.systemPackages = [ (pkgs.writeShellScriptBin "configure" ''
