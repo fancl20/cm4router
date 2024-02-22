@@ -11,14 +11,14 @@
       enable = true;
       ruleset = ''
         table ip nat {
-	  chain postrouting {
-	  	type nat hook postrouting priority srcnat; policy accept;
-	  	ip saddr 192.168.100.0/24 oifname "end0" masquerade
-	  }
-	  chain prerouting {
-	  	type nat hook prerouting priority dstnat; policy accept;
-	  	iifname "end0" udp dport 53 dnat to 192.168.100.2
-	  }
+	        chain postrouting {
+	        	type nat hook postrouting priority srcnat; policy accept;
+	        	ip saddr 192.168.100.0/24 oifname "end0" masquerade
+	        }
+	        chain prerouting {
+	        	type nat hook prerouting priority dstnat; policy accept;
+	        	iifname "end0" udp dport 53 dnat to 192.168.100.2
+	        }
         }
       '';
     };
