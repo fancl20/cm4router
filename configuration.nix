@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./system/hardware.nix
@@ -8,7 +8,7 @@
     ./services/avahi.nix
     ./services/dae.nix
     ./services/kea.nix
-  ];
+  ]  ++ lib.optional (builtins.pathExists ./private/private.nix) ./private/private.nix;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -16,7 +16,12 @@
   services.openssh.enable = true;
 
   environment.systemPackages = [ (pkgs.writeShellScriptBin "configure" ''
-    cd /etc/nixos && sudo sh -c 'HOME=$(mktemp -d) nix-shell --command fish --packages fish git vim dnsutils tcpdump'
+    cd /etc/nixos && \
+    sudo sh -ec '
+      HOME=$(mktemp -d) nix-shell \
+      --packages fish git vim dnsutils tcpdump \
+      --command "EDITOR=vim EMAIL=fancl20@gmail.com fish"
+    '
   '') ];
 
   system.stateVersion = "23.11";

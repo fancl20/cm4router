@@ -1,0 +1,3 @@
+[submodule "private"]
+	path = private
+	url = https://github.com/fancl20/cm4router-private.git

@@ -1,8 +1,7 @@
 {
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; 
+    private.url = "git+file:private";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -10,7 +9,8 @@
       system = "aarch64-linux";
       modules = [
         ./configuration.nix
-      ] ;
+        inputs.private.nixosModules.dae
+      ];
     };
   };
 }

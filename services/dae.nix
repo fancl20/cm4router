@@ -1,53 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   imports = [ ./dae/module.nix ];
 
   services.dae = {
     enable = true;
-    config = ''
-      global{
-        lan_interface: veth0
-        auto_config_kernel_parameter: true
-      }
-      dns {
-        upstream {
-          googledns: 'tcp+udp://dns.google.com:53'
-          alidns: 'udp://dns.alidns.com:53'
-        }
-        routing {
-          request {
-            fallback: alidns
-          }
-          response {
-            upstream(googledns) -> accept
-
-            ip(geoip:private) && !qname(geosite:cn) -> googledns
-            fallback: accept
-          }
-        }
-      }
-      routing{
-        dip(geoip:private) -> direct
-
-        dip(geoip:cn) -> direct
-        domain(geosite:cn) -> direct
-
-        dip(geoip:jp) -> jp
-
-        fallback: all
-      }
-      group {
-        all {
-          policy: min_moving_avg
-        }
-        jp {
-          filter: name(CN-JP2)
-          policy: min_moving_avg
-        }
-      }
-      node {
-      }
-    '';
   };
 
   systemd.services = {

@@ -16,9 +16,25 @@
         "type": "github"
       }
     },
+    "private": {
+      "locked": {
+        "lastModified": 1708693803,
+        "narHash": "sha256-9iQiMayGQXTzbCdwW+BNwSN7v7fzKKE9o/4T/JzsgJc=",
+        "ref": "refs/heads/main",
+        "rev": "611b110bd22361d7cdbcea493b15943bfd8b6e51",
+        "revCount": 2,
+        "type": "git",
+        "url": "file:private"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:private"
+      }
+    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "private": "private"
       }
     }
   },
