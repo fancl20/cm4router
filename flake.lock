@@ -18,11 +18,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1708693803,
-        "narHash": "sha256-9iQiMayGQXTzbCdwW+BNwSN7v7fzKKE9o/4T/JzsgJc=",
+        "lastModified": 1708696181,
+        "narHash": "sha256-9flG8Xf+7HaNESPBn2CHSrstafM3qkHdjRWg4qbT944=",
         "ref": "refs/heads/main",
-        "rev": "611b110bd22361d7cdbcea493b15943bfd8b6e51",
-        "revCount": 2,
+        "rev": "058b2373e458cb85e59eea16a1d5d5b237d55b95",
+        "revCount": 3,
         "type": "git",
         "url": "file:private"
       },
