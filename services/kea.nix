@@ -11,10 +11,10 @@
       };
 
       subnet4 = [{
-        "option-data": [
-          { "name": "routers", "data": "192.168.100.2" }
-          { "name": "domain-name-servers", "data": "192.168.100.2" }
-        ],
+        option-data = [
+          { name = "routers"; data = "192.168.100.2"; }
+          { name = "domain-name-servers"; data = "192.168.100.2"; }
+        ];
         pools = [
           { pool = "192.168.100.5 - 192.168.100.245"; }
         ];
