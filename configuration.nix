@@ -8,7 +8,7 @@
     ./services/avahi.nix
     ./services/dae.nix
     ./services/kea.nix
-  ]  ++ lib.optional (builtins.pathExists ./private/private.nix) ./private/private.nix;
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

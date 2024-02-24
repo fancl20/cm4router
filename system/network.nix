@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./otg-ether.nix ];
+
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = 1;
   };
@@ -42,6 +44,10 @@
       };
       "10-lan" = {
         matchConfig.Name = "enp1s0";
+        bridge = [ "br0" ];
+      };
+      "10-usb" = {
+        matchConfig.Name = "usb0";
         bridge = [ "br0" ];
       };
       "20-lan-br0" = {
